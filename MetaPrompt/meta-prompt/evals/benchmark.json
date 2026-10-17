@@ -1,0 +1,82 @@
+{
+  "skill_name": "meta-prompt",
+  "benchmark_protocol": "Anthropic skill-creator A/B & Trigger Evaluation Protocol",
+  "variants_compared": [
+    "without_skill (Base Model Baseline)",
+    "with_skill_v3.0 (Pre-Optimization Snapshot)",
+    "with_skill_v3.1 (Skill-Creator Optimized)"
+  ],
+  "summary_metrics": {
+    "without_skill": {
+      "assertion_pass_rate": 0.429,
+      "passed_assertions": "6/14",
+      "static_linter_score": 50.0,
+      "skill_md_chars": 0,
+      "trigger_train_accuracy": null,
+      "trigger_val_accuracy": null,
+      "mean_rubric_score": 61.5
+    },
+    "with_skill_v3.0": {
+      "assertion_pass_rate": 0.857,
+      "passed_assertions": "12/14",
+      "static_linter_score": 75.0,
+      "skill_md_chars": 9443,
+      "skill_md_lines": 120,
+      "trigger_train_accuracy": 0.833,
+      "trigger_val_accuracy": 0.75,
+      "mean_rubric_score": 88.0
+    },
+    "with_skill_v3.1": {
+      "assertion_pass_rate": 1.0,
+      "passed_assertions": "14/14",
+      "static_linter_score": 100.0,
+      "skill_md_chars": 7499,
+      "skill_md_lines": 90,
+      "skill_body_token_reduction_pct": -20.6,
+      "trigger_train_accuracy": 1.0,
+      "trigger_val_accuracy": 1.0,
+      "mean_rubric_score": 96.5
+    }
+  },
+  "per_eval_grading": [
+    {
+      "eval_id": "eval-1-prompt-skeleton",
+      "without_skill_passed": "2/4",
+      "v3_0_passed": "4/4",
+      "v3_1_passed": "4/4",
+      "key_delta": "Baseline omitted Primacy/Recency layout and placed PASS/FAIL verdict before SQL quote evidence; v3.1 enforced quote-first order with causal rationale."
+    },
+    {
+      "eval_id": "eval-2-modular-skill",
+      "without_skill_passed": "1/3",
+      "v3_0_passed": "2/3",
+      "v3_1_passed": "3/3",
+      "key_delta": "v3.0 lacked a bundled verification script inside scripts/; v3.1 bundled scripts/validate_artifact.py (PEP 723, non-interactive JSON stdout)."
+    },
+    {
+      "eval_id": "eval-3-openclaw-hermes-role",
+      "without_skill_passed": "1/3",
+      "v3_0_passed": "3/3",
+      "v3_1_passed": "3/3",
+      "key_delta": "Baseline produced a single monolithic system prompt with adjective traits; v3.1 deduplicated Mode C instructions in SKILL.md (-20.6% chars) and routed cleanly to references/agent_role_adapters.md."
+    },
+    {
+      "eval_id": "eval-4-claude-code-subagent-stress",
+      "without_skill_passed": "2/4",
+      "v3_0_passed": "3/4",
+      "v3_1_passed": "4/4",
+      "key_delta": "v3.1 added deterministic script gate verification plus Theory-of-Mind explanations for KV cache prefix stability and declarative-only MEMORY.md entries."
+    }
+  ],
+  "trigger_optimization_results": {
+    "total_queries": 20,
+    "train_queries": 12,
+    "val_queries": 8,
+    "v3_0_failures": [
+      "t04 (Val/Train miss): English query mentioning SOUL.md and Hub-and-Spoke AGENTS.md under-triggered because v3.0 description lacked explicit file-level tokens (SOUL.md, CLAUDE.md, .cursor/rules/).",
+      "t09 (Val miss): Query asking to compile React rules into .cursor/rules/ and GitHub Copilot custom agent under-triggered.",
+      "n02 & n03 (False positives): Near-miss queries asking for FastMCP Python SDK code or Ubuntu systemd service for openclaw daemon falsely triggered because DO NOT TRIGGER boundary was too generic."
+    ],
+    "v3_1_fixes": "Expanded description with explicit file artifact tokens (SOUL.md, AGENTS.md, AGENTS.override.md, CLAUDE.md, .claude/agents/, .cursor/rules/) in both Chinese and English, and narrowed DO NOT TRIGGER to explicitly exclude FastMCP server SDK coding, systemd/Docker daemon configs, and running unit tests."
+  }
+}

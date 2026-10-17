@@ -1,0 +1,86 @@
+{
+  "skill_name": "meta-prompt",
+  "version_evaluated": "3.0.0 -> 3.1.0",
+  "evals": [
+    {
+      "id": "eval-1-prompt-skeleton",
+      "name": "Production SQL Migration Review Prompt Skeleton",
+      "prompt": "帮我写一个高复用的提示词，用来在 PR 阶段自动审查 PostgreSQL 数据库迁移脚本（Alembic/SQL），防止锁表和数据丢失。",
+      "assertions": [
+        {
+          "id": "a1_primacy_recency",
+          "text": "Organizes the prompt into Primacy (hard constraints & input contract), Middle (workflow & gotchas), and Recency (output schema & self-check loop) zones"
+        },
+        {
+          "id": "a2_dual_mode_input",
+          "text": "Defines explicit {{VARIABLE}} input slots with a missing-parameter fallback policy rather than leaving raw [Insert SQL here] placeholders"
+        },
+        {
+          "id": "a3_quote_before_verdict",
+          "text": "Requires quoting offending SQL statements and analyzing lock impact BEFORE emitting the final severity rating or PASS/FAIL verdict"
+        },
+        {
+          "id": "a4_domain_gotchas",
+          "text": "Includes concrete PostgreSQL migration gotchas (e.g., CREATE INDEX CONCURRENTLY, adding NOT NULL column without default lock behavior)"
+        }
+      ]
+    },
+    {
+      "id": "eval-2-modular-skill",
+      "name": "API Contract Breaking-Change Detector Skill Package",
+      "prompt": "把 OpenAPI/Swagger 接口变更兼容性检查封装成一个标准 Agent Skill，确保它能稳定检测破坏性变更。",
+      "assertions": [
+        {
+          "id": "b1_three_level_disclosure",
+          "text": "Structures output as a modular skill package (SKILL.md < 500 lines + 1-level-deep phase-gated references/ + PEP 723 non-interactive scripts/)"
+        },
+        {
+          "id": "b2_pushy_bidirectional_description",
+          "text": "YAML frontmatter description uses third-person voice, includes casual/implicit trigger phrases, and explicitly states DO NOT TRIGGER exclusions"
+        },
+        {
+          "id": "b3_pep723_cli_contract",
+          "text": "Bundled script uses PEP 723 inline dependencies, avoids interactive TTY prompts, outputs JSON to stdout, and errors to stderr"
+        }
+      ]
+    },
+    {
+      "id": "eval-3-openclaw-hermes-role",
+      "name": "Cross-Platform Autonomous Architecture Role (OpenClaw & Hermes Adaptation)",
+      "prompt": "帮我定义一个首席系统架构师 Agent 角色，要求同时适配 OpenClaw 和 Hermes Agent，不能变成一锅粥的大泥球文件。",
+      "assertions": [
+        {
+          "id": "c1_behavior_spec_over_traits",
+          "text": "Replaces adjective trait lists with a 3-part Behavior Spec (Sizing Rule + Named Prohibitions with Anti-Sycophancy + Earned-Depth Escape Hatch)"
+        },
+        {
+          "id": "c2_openclaw_7file_separation",
+          "text": "Splits OpenClaw output into orthogonal files (IDENTITY.md, SOUL.md, AGENTS.md, USER.md, TOOLS.md, MEMORY.md, HEARTBEAT.md) plus openclaw.json with minimal subagent mode"
+        },
+        {
+          "id": "c3_hermes_soul_and_hub_agents",
+          "text": "Generates Hermes Slot #1 SOUL.md (compatible with user_authored=True scan) and a root Hub-and-Spoke AGENTS.md (<=12K chars) with declarative-only MEMORY.md rules"
+        }
+      ]
+    },
+    {
+      "id": "eval-4-claude-code-subagent-stress",
+      "name": "Read-Only Security Auditor Subagent with Stress-Test Self-Evolution",
+      "prompt": "为 Claude Code 生成一个专职安全审计 Subagent (.claude/agents/security-auditor.md)，并用对抗测试验证它不会被用户忽悠去直接改代码或盲目附和错误方案。",
+      "assertions": [
+        {
+          "id": "d1_host_yaml_enforcement",
+          "text": "Enforces read-only boundary in YAML frontmatter via tools: Read, Grep, Glob, Bash and disallowedTools: Write, Edit, paired with model: opus and effort: high"
+        },
+        {
+          "id": "d2_handoff_contract",
+          "text": "Defines a signal-only Handoff Contract starting with VERDICT: PASS/FAIL and exact file_path:line_number citations"
+        },
+        {
+          "id": "d3_three_case_stress_test",
+          "text": "Runs the 100-point rubric and 3 adversarial stress tests (Sycophancy Trap, Boundary/Shortcut Trap, Near-Miss Routing Trap) with concrete evidence"
+        }
+      ]
+    }
+  ]
+}

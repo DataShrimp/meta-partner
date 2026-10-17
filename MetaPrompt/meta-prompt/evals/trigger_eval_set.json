@@ -1,0 +1,146 @@
+{
+  "skill_name": "meta-prompt",
+  "split_ratio": "60% train (12 queries) / 40% validation (8 queries)",
+  "queries": [
+    {
+      "id": "t01",
+      "split": "train",
+      "should_trigger": true,
+      "category": "prompt_optimization_casual",
+      "query": "我写的这个数据分析 prompt 老是输出一堆废话，而且经常漏掉边界条件，帮我重构成一个能稳定复用的生产级模板"
+    },
+    {
+      "id": "t02",
+      "split": "train",
+      "should_trigger": true,
+      "category": "skill_packaging",
+      "query": "把我们刚才排查 Kubernetes OOM 故障的整套命令和判断逻辑封装成一个符合规范的 SKILL.md 技能包"
+    },
+    {
+      "id": "t03",
+      "split": "train",
+      "should_trigger": true,
+      "category": "openclaw_role",
+      "query": "帮我给 OpenClaw 设计一套全栈研发 Agent 的 SOUL.md 和 AGENTS.md，顺便配好 openclaw.json 的子代理省流模式"
+    },
+    {
+      "id": "t04",
+      "split": "train",
+      "should_trigger": true,
+      "category": "hermes_role",
+      "query": "I want to write a custom SOUL.md and a Hub-and-Spoke AGENTS.md for my Hermes Agent setup so it stops being sycophantic."
+    },
+    {
+      "id": "t05",
+      "split": "train",
+      "should_trigger": true,
+      "category": "claude_subagent_role",
+      "query": "给项目的 .claude/agents/ 目录加一个只读的数据库迁移审查员角色，要求物理禁用写权限并输出结构化 Verdict"
+    },
+    {
+      "id": "t06",
+      "split": "train",
+      "should_trigger": true,
+      "category": "role_cross_compilation",
+      "query": "我有一个 Claude Code 的 CLAUDE.md 和 subagent 配置，帮我按需转换适配成 OpenAI Codex 的分级 AGENTS.md 和 AGENTS.override.md"
+    },
+    {
+      "id": "t07",
+      "split": "val",
+      "should_trigger": true,
+      "category": "eval_and_self_evolve",
+      "query": "这是我目前的客服质检 System Prompt 和几条翻车的对话记录，帮我跑一下 100 分制诊断并迭代出一个升级版"
+    },
+    {
+      "id": "t08",
+      "split": "val",
+      "should_trigger": true,
+      "category": "implicit_meta_prompt",
+      "query": "Help me design a reusable system prompt with {{VARIABLE}} slots for o3 and Claude Sonnet to extract legal clauses with zero hallucinations."
+    },
+    {
+      "id": "t09",
+      "split": "val",
+      "should_trigger": true,
+      "category": "cursor_copilot_role",
+      "query": "帮我把这套前端 React 性能规范编译成 Cursor 的 .cursor/rules/ 角色规则和 GitHub Copilot 的 custom agent"
+    },
+    {
+      "id": "t10",
+      "split": "val",
+      "should_trigger": true,
+      "category": "skill_trigger_tuning",
+      "query": "我的周报生成 skill 总是被普通总结请求误触发，帮我用近邻负例优化一下它的 frontmatter description"
+    },
+    {
+      "id": "n01",
+      "split": "train",
+      "should_trigger": false,
+      "category": "near_miss_direct_coding",
+      "query": "帮我审查一下 src/auth/login.py 里的 SQL 注入漏洞并直接修复代码"
+    },
+    {
+      "id": "n02",
+      "split": "train",
+      "should_trigger": false,
+      "category": "near_miss_mcp_server_code",
+      "query": "用 Python FastMCP 写一个连接本地 SQLite 数据库的 MCP Server 代码实现"
+    },
+    {
+      "id": "n03",
+      "split": "train",
+      "should_trigger": false,
+      "category": "near_miss_linux_systemd_unit",
+      "query": "帮我写一个 Ubuntu 下的 systemd service 配置文件来守护运行 openclaw 后台进程"
+    },
+    {
+      "id": "n04",
+      "split": "train",
+      "should_trigger": false,
+      "category": "near_miss_git_worktree_cli",
+      "query": "怎么用 git worktree 命令在本地同时检出 hotfix 分支和 main 分支？"
+    },
+    {
+      "id": "n05",
+      "split": "train",
+      "should_trigger": false,
+      "category": "near_miss_direct_translation",
+      "query": "把这篇英文的 README.md 翻译成中文，保持 Markdown 表格格式不变"
+    },
+    {
+      "id": "n06",
+      "split": "train",
+      "should_trigger": false,
+      "category": "near_miss_api_sdk_usage",
+      "query": "Write a Python script using the Anthropic SDK to call claude-sonnet-4-20250514 with streaming enabled."
+    },
+    {
+      "id": "n07",
+      "split": "val",
+      "should_trigger": false,
+      "category": "near_miss_pydantic_schema",
+      "query": "帮我把这段 JSON 响应转换成 Pydantic BaseModel 类定义"
+    },
+    {
+      "id": "n08",
+      "split": "val",
+      "should_trigger": false,
+      "category": "near_miss_pytest_execution",
+      "query": "运行 tests/ 目录下的单元测试，看看为什么 test_payment_idempotency 挂了"
+    },
+    {
+      "id": "n09",
+      "split": "val",
+      "should_trigger": false,
+      "category": "near_miss_general_architecture_qa",
+      "query": "微服务架构下用 Kafka 和用 RabbitMQ 做订单异步解耦有什么优缺点？"
+    },
+    {
+      "id": "n10",
+      "split": "val",
+      "should_trigger": false,
+      "category": "near_miss_markdown_formatting",
+      "query": "帮我把这份会议纪要整理成带 Action Items 的 Markdown 表格发给团队"
+    }
+  ]
+}
