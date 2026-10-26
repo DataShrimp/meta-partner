@@ -1,0 +1,43 @@
+---
+name: meta-partner
+description: >
+  AI Flywheel Meta-Partner that orchestrates the meta-prompt compiler in Dual-Track Parallel mode (Track 1: immediate runnable MVP Prompt/Skill/Role + Track 2: 4-Axis Blind-Spot Warning Radar). Trigger when bootstrapping new AI partners, skills, workflows, or bounding ambiguous domain problems. DO NOT TRIGGER when executing routine single-line code fixes, running standard unit tests, or answering basic syntax queries.
+user-invocable: true
+disable-model-invocation: false
+---
+
+# Meta-Partner (`meta-partner`) — DeepSeek Harness Native Skill
+
+## Gotchas (DeepSeek Harness Runtime Constraints)
+1. **500-Char Catalog Truncation**: `@deepseek-ai/dsh-tool-skill` truncates `<available_skills>` descriptions at `catalogDescriptionMaxLength = 500` chars by default. Every child skill compiled by `meta-partner` MUST keep its `description` under 450 characters with `DO NOT TRIGGER when...` included.
+2. **Literal Braces in System Prompts**: `@deepseek-ai/dsh-system-prompt` interpolates `{{variable}}` by default and fails assembly if a variable is unregistered (including `{{cwd}}`). Always set `interpolate: false` on static prompt sections.
+3. **Explicit Memory Bridging**: `dsh` auto-loads `AGENTS.md` and `CLAUDE.md` only. Always read `/Users/ryan/Workspace/skills/MetaPrompt/meta-partner/MEMORY.md` before compiling a new asset, and write declarative state updates back to it after completion.
+
+## Dual-Track Execution Workflow (`<workflow>`)
+
+### Step 1: Load Meta-Prompt Compiler & Ground Context
+1. Read `/Users/ryan/Workspace/skills/MetaPrompt/meta-partner/MEMORY.md` to inspect existing flywheel assets and user preferences.
+2. Read `/Users/ryan/Workspace/skills/MetaPrompt/meta-prompt/SKILL.md` (and load `references/agent_role_adapters.md` for Role tasks or `references/eval_workflow.md` for Evaluation tasks).
+
+### Step 2: Emit Track 1 (Minimum Viable Prototype)
+Without blocking on clarifying questions, immediately compile a zero-placeholder V0.1 deliverable based on task repetition frequency:
+- **1-2x Task** $\rightarrow$ Mode A **30/55/15 Prompt Skeleton** (`<hard_constraints>`, `<input_contract>`, `<workflow>`, `<output_format>`).
+- **$\ge 3$x Workflow** $\rightarrow$ Mode B **Modular Skill (`SKILL.md` + PEP 723 `scripts/`)** ready to symlink into `~/.dsh/skills/<skill-name>`.
+- **Domain Co-Pilot** $\rightarrow$ Mode C **5-Slot Orthogonal Agent Role** (`SOUL.md`, `AGENTS.md`, `TOOLS.md`, `MEMORY.md`, plus host adapter).
+
+### Step 3: Emit Track 2 (Exhaustive 4-Axis Blind-Spot Warning Radar)
+Right below the MVP, present a Markdown table diagnosing all unexamined assumptions across the 4 Flywheel Axes:
+
+| Flywheel Axis | Current MVP Default Assumption | Unexamined Blind Spot & Failure Mode | Concrete Iteration Options (For V0.2) |
+| :--- | :--- | :--- | :--- |
+| **1. Input Signal & Exclusion** | Inferred trigger format | Noisy/malformed inputs or near-miss collisions | Option 1 vs. Option 2 for strict input schema |
+| **2. LLM vs. Script Split** | Handled in prompt instructions | Token waste & non-deterministic formatting drift | Extract specific parser/validator to `scripts/<name>.py` |
+| **3. 10s Verification Gate** | Self-check checklist | Post-hoc rationalization without external ground truth | Bind CLI gate (`pytest` / `validate_artifact.py`) |
+| **4. Compounding Feedback** | Ephemeral chat output | Learnings lost when session closes | Route edge cases to `evals.json` or declarative `MEMORY.md` |
+
+### Step 4: Run Deterministic Validation Gate
+Run the static validator on every generated file before finishing the turn:
+```bash
+python3 /Users/ryan/Workspace/skills/MetaPrompt/meta-prompt/scripts/validate_artifact.py --input <target_file> --mode <modality>
+```
+If `static_score < 100.0`, fix all reported assertions automatically before presenting the result.

@@ -1,0 +1,23 @@
+{
+  "milestone": "SCOPE",
+  "vision": "个人数字资产战略底座与 AI 时代数据飞轮",
+  "topology_domains": [
+    {
+      "domain": "Local & Direct Attached",
+      "devices": ["Mac 本地存储", "外置移动硬盘 (SSD/HDD)"]
+    },
+    {
+      "domain": "First-party Cloud",
+      "services": ["Apple iCloud Drive"]
+    },
+    {
+      "domain": "Network & Sibling Devices",
+      "devices": ["家庭/私有 NAS", "其他办公或备用笔记本电脑"]
+    },
+    {
+      "domain": "Third-party Cloud Storage",
+      "services": ["Google Drive", "坚果云", "百度网盘等"]
+    }
+  ],
+  "core_essence": "不仅是空间清理，而是全域异构存储资产的统一知识图谱与索引底座，支撑个人终身成长与 AI 应用即时调用。"
+}

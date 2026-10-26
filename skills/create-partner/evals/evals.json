@@ -1,0 +1,202 @@
+{
+  "skill": "create-partner",
+  "version": "0.1.0",
+  "updated": "2026-10-19",
+  "notes": "Each case names the pitfall id it guards. E14 added after the official-copy integration: `node -e` argv indexing (no script placeholder) and URI percent-encoding both produced ERR_MODULE_NOT_FOUND with misleading blame.",
+  "cases": [
+    {
+      "id": "E01",
+      "guards": "P02",
+      "prompt": "把 meta-partner 这个角色装到桌面端，让它每轮自动生效。",
+      "must_do": [
+        "state that dsh plugin --profile desktop is rejected by rejectElectronProfile",
+        "route to the workspace-package path: <profile>/packages/<pkg> + workspace:* + dsh.profile.bundles + pnpm install --ignore-scripts"
+      ],
+      "must_not_do": [
+        "run dsh plugin --profile desktop",
+        "claim success after creating a symlink"
+      ],
+      "failure_mode_if_wrong": "The user waits for a mount that the CLI will never perform."
+    },
+    {
+      "id": "E02",
+      "guards": "P01",
+      "prompt": "插件装好了，但我在这个界面看不到，为什么？",
+      "must_do": [
+        "identify which profile serves the URL before proposing any fix",
+        "name profile isolation as the first hypothesis"
+      ],
+      "must_not_do": [
+        "reinstall the plugin blindly",
+        "assume the GUI is the profile that was modified"
+      ],
+      "failure_mode_if_wrong": "A correct install is torn down and redone against the wrong profile."
+    },
+    {
+      "id": "E03",
+      "guards": "P08",
+      "prompt": "我写了一个 cordis.patch.yml，第一行是 plugins:，启动报 must be a top-level YAML array。",
+      "must_do": [
+        "identify the mapping-versus-sequence defect",
+        "also check that the package declares dsh.bundle.patch"
+      ],
+      "must_not_do": [
+        "edit unrelated plugin code",
+        "reinstall"
+      ],
+      "failure_mode_if_wrong": "The real defect survives a reinstall and the error repeats."
+    },
+    {
+      "id": "E04",
+      "guards": "P06",
+      "prompt": "dsh --profile web --dump-config 报 EPERM，是不是插件坏了？",
+      "must_do": [
+        "classify as permission, not structure",
+        "fall back to loadProfileDirectory as the read-only gate"
+      ],
+      "must_not_do": [
+        "report the mount as successful",
+        "rewrite the bundle"
+      ],
+      "failure_mode_if_wrong": "A correct bundle is modified to chase a sandbox error; the gate is declared failed when it was merely blocked."
+    },
+    {
+      "id": "E05",
+      "guards": "P07",
+      "prompt": "用 npx 起的 dsh 启动就崩，报 koffi code signature。",
+      "must_do": [
+        "name the app launcher under runtime/cli/bin/dsh as the supported entry"
+      ],
+      "must_not_do": [
+        "reinstall the plugin",
+        "strip code signatures"
+      ],
+      "failure_mode_if_wrong": "An unrelated environment defect is attributed to the role."
+    },
+    {
+      "id": "E06",
+      "guards": "P10",
+      "prompt": "我改了这个技能的内容，为什么加载的还是旧版？",
+      "must_do": [
+        "enumerate the six skill roots with ranks",
+        "check for a higher-rank duplicate that shadows the edited copy"
+      ],
+      "must_not_do": [
+        "tell the user to restart the app first"
+      ],
+      "failure_mode_if_wrong": "The edited file is correct and the user keeps loading a stale shadow."
+    },
+    {
+      "id": "E07",
+      "guards": "P08-brace",
+      "prompt": "给我的 SOUL.md 加上 {{user_name}} 让它自动填名字。",
+      "must_do": [
+        "explain that renderPrompt interpolates strictly and throws on unregistered variables",
+        "state that interpolate: false is not an API",
+        "offer registration via systemPrompt.variable() or static text"
+      ],
+      "must_not_do": [
+        "add interpolate: false and call it fixed"
+      ],
+      "failure_mode_if_wrong": "Prompt assembly throws on every request and the cause looks unrelated to the edit."
+    },
+    {
+      "id": "E08",
+      "guards": "P14",
+      "prompt": "这个技能的 description 可以写多长？",
+      "must_do": [
+        "state the 500-character catalog cap and the 450 safety margin"
+      ],
+      "must_not_do": [
+        "say there is no limit"
+      ],
+      "failure_mode_if_wrong": "The negative trigger boundary is truncated and the skill misfires on adjacent tasks."
+    },
+    {
+      "id": "E09",
+      "guards": "F4",
+      "prompt": "SOUL.md 改了一条规矩，桌面端的 persona 会不会自动跟上？",
+      "must_do": [
+        "state that the persona prefix is a hand-maintained partial copy and does not track SOUL.md",
+        "run check_persona_drift.py and report the missing clause list rather than judging by eye"
+      ],
+      "must_not_do": [
+        "answer from the persona text alone",
+        "claim consistency without measuring"
+      ],
+      "failure_mode_if_wrong": "A drifted prefix keeps sounding authoritative while a real rule has quietly disappeared."
+    },
+    {
+      "id": "E10",
+      "guards": "P08-brace-self-regression",
+      "prompt": "我在 AGENTS.md 里写「会抛错，除非设置 interpolate: false 并处理 {{variable}}」，可以吗？",
+      "must_do": [
+        "flag that the literal double-brace token makes the injectable slot fail P08",
+        "rewrite the sentence to name the shape without the braces"
+      ],
+      "must_not_do": [
+        "keep the braces because the sentence is only explanatory"
+      ],
+      "failure_mode_if_wrong": "Documenting a hazard creates the hazard: the file that mentions the placeholder becomes un-injectable."
+    },
+    {
+      "id": "E11",
+      "guards": "F4-anchor",
+      "prompt": "persona 前缀我压成锚点了，怎么知道它没坏？",
+      "must_do": [
+        "state that anchor mode is detected by the marker phrase 'anchor, not a summary'",
+        "verify the three invariants: named files exist, all three slots named, under 900 chars",
+        "verify the ~/.dsh/AGENTS.md pull pointer is installed, since the anchor depends on it"
+      ],
+      "must_not_do": [
+        "run clause-coverage comparison against an anchor, which is meaningless by construction",
+        "declare success without checking the pointer"
+      ],
+      "failure_mode_if_wrong": "An anchor without a working pointer is worse than a summary: the model is told to read files it is never sent to, and no clause reaches the prompt at all."
+    },
+    {
+      "id": "E12",
+      "guards": "P18",
+      "prompt": "我刚用 create-partner 建好了一个新伙伴，为什么 Agent 选择器里没有它？",
+      "must_do": [
+        "ask whether the role was mounted as a preset at all, since only presets appear in the picker",
+        "distinguish the four tiers: preset, skill, AGENTS.md chain, profile bundle",
+        "if a bootstrap block exists in ~/.dsh/AGENTS.md for this role, name it as the mis-mount and propose the preset tier",
+        "state the restart requirement: the registry mounts once per process"
+      ],
+      "must_not_do": [
+        "tell the user to reinstall anything before identifying the tier mismatch",
+        "suggest another AGENTS.md block as the fix"
+      ],
+      "failure_mode_if_wrong": "The partner stays invisible in the picker while its contract keeps polluting every session."
+    },
+    {
+      "id": "E13",
+      "guards": "P17",
+      "prompt": "我的 agent.cordis.yml 一解析就报 could not determine a constructor for the tag，文件哪里坏了？",
+      "must_do": [
+        "identify !!js as a legitimate runtime-expression tag, not file corruption",
+        "register a pass-through constructor for tag:yaml.org,2002:js before parsing"
+      ],
+      "must_not_do": [
+        "rewrite the file to remove the tag rows",
+        "report the composition as broken"
+      ],
+      "failure_mode_if_wrong": "A working platform-conditional composition gets 'fixed' into a broken one."
+    },
+    {
+      "id": "E14",
+      "guards": "P19",
+      "prompt": "scaffold_preset 报 ERR_MODULE_NOT_FOUND: Cannot find package 'undefined'，官方包坏了吗？",
+      "must_do": [
+        "identify 'undefined' as the imported specifier, i.e. an argv indexing bug under `node -e` where user args start at argv[1]",
+        "check the module specifier is a raw file:// path, not percent-encoded (@ becomes %40 and breaks relative import resolution)"
+      ],
+      "must_not_do": [
+        "reinstall or downgrade the presets package",
+        "report the platform API as broken"
+      ],
+      "failure_mode_if_wrong": "A working platform API gets blamed and reimplemented locally — recreating the exact wheel the delegation was meant to remove."
+    }
+  ]
+}

@@ -1,0 +1,358 @@
+{
+  "schema": 1,
+  "started": "2026-10-23T12:22:21",
+  "duration_s": 0.37,
+  "roots": [
+    {
+      "root": "/Users/ryan/Documents",
+      "files": 186,
+      "bytes": 143189365,
+      "tops": {
+        ".": [
+          3,
+          22302
+        ],
+        "Codex": [
+          147,
+          142778900
+        ],
+        "deepseek-harness": [
+          32,
+          369454
+        ],
+        "ykdl_folder": [
+          2,
+          12296
+        ],
+        "antigravity": [
+          1,
+          6148
+        ],
+        ".UTSystemConfig": [
+          1,
+          265
+        ]
+      }
+    },
+    {
+      "root": "/Users/ryan/Desktop",
+      "files": 2,
+      "bytes": 6148,
+      "tops": {
+        ".": [
+          2,
+          6148
+        ]
+      }
+    },
+    {
+      "root": "/Users/ryan/Downloads",
+      "files": 1184,
+      "bytes": 23031776769,
+      "tops": {
+        ".": [
+          227,
+          21282461612
+        ],
+        "lucky-yaoyao-codex-release-2.0.8": [
+          1,
+          1755
+        ],
+        "拾甲社": [
+          20,
+          48992077
+        ],
+        "AI法律顾问资料合": [
+          48,
+          1248144
+        ],
+        "路演打印物料": [
+          9,
+          1793298
+        ],
+        "AI 销冠": [
+          12,
+          17699531
+        ],
+        "私董会": [
+          9,
+          10397869
+        ],
+        "wx_video_download_v260907_darwin_arm64": [
+          7,
+          61156848
+        ],
+        "vikki-human-speech": [
+          4,
+          31871
+        ],
+        "全域测试客户_1789396870852_招聘及入职管理制度_全套交付包": [
+          6,
+          203991
+        ],
+        "AI": [
+          17,
+          27850360
+        ],
+        "Initial Scene - 2026-08-23": [
+          8,
+          91463734
+        ],
+        "dlc": [
+          3,
+          363120
+        ],
+        "Reward": [
+          20,
+          18474000
+        ],
+        "checklist-note-maker": [
+          3,
+          12714
+        ],
+        "新建8.19": [
+          786,
+          1050255129
+        ],
+        "demos": [
+          4,
+          419370716
+        ]
+      }
+    },
+    {
+      "root": "/Users/ryan/Library/Mobile Documents/com~apple~CloudDocs",
+      "files": 23,
+      "bytes": 134689477,
+      "tops": {
+        ".": [
+          1,
+          10244
+        ],
+        "Downloads": [
+          22,
+          134679233
+        ]
+      }
+    }
+  ],
+  "totals": {
+    "files": 1394,
+    "dirs": 210,
+    "links": 0,
+    "pkgs": 1,
+    "skips": 1,
+    "errors": 0,
+    "bytes": 23309661759,
+    "dataless_files": 21,
+    "dataless_bytes": 134671037
+  },
+  "by_ext_top": [
+    {
+      "ext": "nsz",
+      "files": 2,
+      "bytes": 14016986112
+    },
+    {
+      "ext": "nsp",
+      "files": 4,
+      "bytes": 4251665856
+    },
+    {
+      "ext": "dmg",
+      "files": 9,
+      "bytes": 1772887822
+    },
+    {
+      "ext": "mp4",
+      "files": 39,
+      "bytes": 1033106435
+    },
+    {
+      "ext": "pdf",
+      "files": 205,
+      "bytes": 720162115
+    },
+    {
+      "ext": "jpg",
+      "files": 618,
+      "bytes": 257140431
+    },
+    {
+      "ext": "zip",
+      "files": 26,
+      "bytes": 245085045
+    },
+    {
+      "ext": "png",
+      "files": 111,
+      "bytes": 133049804
+    },
+    {
+      "ext": "epub",
+      "files": 7,
+      "bytes": 124880221
+    },
+    {
+      "ext": "key",
+      "files": 3,
+      "bytes": 120406030
+    },
+    {
+      "ext": "rar",
+      "files": 2,
+      "bytes": 118779836
+    },
+    {
+      "ext": "dwg",
+      "files": 19,
+      "bytes": 79516748
+    },
+    {
+      "ext": "(none)",
+      "files": 46,
+      "bytes": 57258043
+    },
+    {
+      "ext": "m4a",
+      "files": 13,
+      "bytes": 45974839
+    },
+    {
+      "ext": "msi",
+      "files": 3,
+      "bytes": 45900648
+    },
+    {
+      "ext": "aac",
+      "files": 1,
+      "bytes": 42132481
+    },
+    {
+      "ext": "jar",
+      "files": 2,
+      "bytes": 41238326
+    },
+    {
+      "ext": "gba",
+      "files": 2,
+      "bytes": 33554432
+    },
+    {
+      "ext": "bak",
+      "files": 7,
+      "bytes": 28308707
+    },
+    {
+      "ext": "exe",
+      "files": 1,
+      "bytes": 27342794
+    }
+  ],
+  "mtime_buckets": {
+    "7d": {
+      "files": 28,
+      "bytes": 254768230
+    },
+    "30d": {
+      "files": 58,
+      "bytes": 19367857085
+    },
+    "180d": {
+      "files": 494,
+      "bytes": 2182404161
+    },
+    "1y": {
+      "files": 24,
+      "bytes": 102993252
+    },
+    "older": {
+      "files": 790,
+      "bytes": 1400015337
+    }
+  },
+  "largest_files": [
+    {
+      "bytes": 10746867902,
+      "p": "/Users/ryan/Downloads/Fire Emblem Engage [0100A6301214E000][v0].nsz"
+    },
+    {
+      "bytes": 4251302736,
+      "p": "/Users/ryan/Downloads/Fire Emblem Engage [0100A6301214E800][v327680].nsp"
+    },
+    {
+      "bytes": 3270118210,
+      "p": "/Users/ryan/Downloads/Fire Emblem Engage - v2.0.0 [0100A6301214E800][v327680].nsz"
+    },
+    {
+      "bytes": 530673215,
+      "p": "/Users/ryan/Downloads/WeChatMac_4.1.15.dmg"
+    },
+    {
+      "bytes": 513535334,
+      "p": "/Users/ryan/Downloads/WorkBuddy-darwin-arm64-5.5.2.37849279-910352f0.dmg"
+    },
+    {
+      "bytes": 297066845,
+      "p": "/Users/ryan/Downloads/demos/demo.mp4"
+    },
+    {
+      "bytes": 237988020,
+      "p": "/Users/ryan/Downloads/Gemini.dmg"
+    },
+    {
+      "bytes": 233704463,
+      "p": "/Users/ryan/Downloads/Obsidian-1.14.4.dmg"
+    },
+    {
+      "bytes": 139605253,
+      "p": "/Users/ryan/Downloads/康比特AI智慧营养超级食堂-AI营养智联全场.mp4"
+    },
+    {
+      "bytes": 109126895,
+      "p": "/Users/ryan/Downloads/didalist_8.2.30_923.dmg"
+    },
+    {
+      "bytes": 89971764,
+      "p": "/Users/ryan/Downloads/新建8.19/原始数据/上诉状/留营VS刘建伟/原告材料/丰台/北京市丰台区（榆树庄工地）材料/原告被告二商务部马亮交涉工地事宜，第9页/商务部马亮发原告的施工图纸p9第4项.rar"
+    },
+    {
+      "bytes": 88577966,
+      "p": "/Users/ryan/Downloads/feishu2slide-portable-release-20260625-0649.zip"
+    },
+    {
+      "bytes": 82561386,
+      "p": "/Users/ryan/Downloads/吾辈如神 (彼得·戴曼迪斯(Peter H.Diamandis)) (z-library.sk, 1lib.sk, z-lib.sk).epub"
+    },
+    {
+      "bytes": 75064050,
+      "p": "/Users/ryan/Downloads/Initial Scene - 2026-08-23/8月24日.mp4"
+    },
+    {
+      "bytes": 73973481,
+      "p": "/Users/ryan/Downloads/成人组Group 11- “别粗心” v3.key"
+    },
+    {
+      "bytes": 65890484,
+      "p": "/Users/ryan/Downloads/MAXHUBShare_6.7.9.23_117.dmg"
+    },
+    {
+      "bytes": 64850249,
+      "p": "/Users/ryan/Downloads/新建8.19/口述北航 1.建校十年国之不胜家何在自古有国才有家_哔哩哔哩_bilibili.mp4"
+    },
+    {
+      "bytes": 61625622,
+      "p": "/Users/ryan/Library/Mobile Documents/com~apple~CloudDocs/Downloads/Clash.Verge_2.5.1_aarch64.dmg"
+    },
+    {
+      "bytes": 61203382,
+      "p": "/Users/ryan/Downloads/吾辈如神 (彼得·戴曼迪斯(Peter H.Diamandis)) (z-library.sk, 1lib.sk, z-lib.sk).pdf"
+    },
+    {
+      "bytes": 56977074,
+      "p": "/Users/ryan/Downloads/wx_video_download_v260907_darwin_arm64/wx_video_download"
+    }
+  ],
+  "errors_sample": [],
+  "ledger": "/Users/ryan/Documents/projects/meta-partner/partners/asset-partner/state/inventory/scan-20261023-122221.jsonl"
+}

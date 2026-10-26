@@ -1,0 +1,24 @@
+{
+  "name": "@user/dsh-plugin-meta-partner",
+  "version": "0.1.0",
+  "description": "DeepSeek Harness (DSH) Cordis plugin that mounts Meta-Partner (SOUL.md, declarative MEMORY.md, Dual-Track Blind-Spot Radar, and meta-prompt skill bridge).",
+  "type": "module",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "cordis",
+    "meta-partner",
+    "meta-prompt"
+  ],
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.5",
+    "@deepseek-ai/dsh-system-prompt": "^0.2.1",
+    "@deepseek-ai/dsh-skill": "^0.2.1"
+  },
+  "license": "MIT"
+}

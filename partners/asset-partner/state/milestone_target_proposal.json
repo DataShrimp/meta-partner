@@ -1,0 +1,24 @@
+{
+  "milestone": "TARGET",
+  "vision_targets": [
+    "高效快速检索供 AI 及个人使用",
+    "扎实完备的跨端数据安全备份",
+    "持续积累的数据飞轮闭环"
+  ],
+  "falsifiable_metrics_proposal": {
+    "top_1_metric": {
+      "name": "极速检索命中率与延迟 (Retrieval Recall & Latency)",
+      "benchmark": "全域异构存储索引覆盖下，关键词/语义检索召回 Top3 命中率 >= 95%，本地及索引层响应时间 <= 3 秒。",
+      "falsification_condition": "当 AI 应用或个人通过标签/语义调取历史关键资产时，若报 404 或需要手动翻找，判定为失职。"
+    },
+    "secondary_metric_1_safety": {
+      "name": "关键资产双副本在位度 (Crown Jewels Redundancy)",
+      "benchmark": "划定为核心资产的数据（源码、文档、重要财务/私钥证书），跨介质（本地+云端或本地+NAS）有效备份覆盖率 100% (RPO <= 24h)。",
+      "falsification_condition": "任意单一硬件介质损坏或掉线时，核心资产发生不可逆灭失。"
+    },
+    "secondary_metric_2_flywheel": {
+      "name": "数据飞轮增量收敛度 (Incremental Ledger Growth)",
+      "benchmark": "新产生/新下载资产具有明确的生命周期流转路由，增量数据扫描与分类自动化率 >= 80%。"
+    }
+  }
+}

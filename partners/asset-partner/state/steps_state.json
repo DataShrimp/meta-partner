@@ -1,0 +1,97 @@
+{
+  "current_stage": "SUPPORTED",
+  "history": [
+    {
+      "from": "INIT",
+      "to": "SCOPE_GROUNDED",
+      "time": "2026-10-26T10:24:00.321099+00:00",
+      "user_confirmed": false
+    },
+    {
+      "from": "SCOPE_GROUNDED",
+      "to": "TARGET_GROUNDED",
+      "time": "2026-10-26T10:29:56.181831+00:00",
+      "user_confirmed": true
+    },
+    {
+      "from": "TARGET_GROUNDED",
+      "to": "FRAMEWORK_DRAFTED",
+      "time": "2026-10-26T11:05:53.600272+00:00",
+      "user_confirmed": true
+    },
+    {
+      "from": "FRAMEWORK_DRAFTED",
+      "to": "PREDICT_AUDITED",
+      "time": "2026-10-26T11:24:33.768743+00:00",
+      "user_confirmed": false
+    },
+    {
+      "from": "PREDICT_AUDITED",
+      "to": "SUPPORTED",
+      "time": "2026-10-26T11:24:33.799883+00:00",
+      "user_confirmed": false
+    }
+  ],
+  "milestone_data": {
+    "SCOPE_GROUNDED": {
+      "milestone": "SCOPE",
+      "vision": "个人数字资产战略底座与 AI 时代数据飞轮",
+      "topology_domains": [
+        {
+          "domain": "Local & Direct Attached",
+          "devices": [
+            "Mac 本地存储",
+            "外置移动硬盘 (SSD/HDD)"
+          ]
+        },
+        {
+          "domain": "First-party Cloud",
+          "services": [
+            "Apple iCloud Drive"
+          ]
+        },
+        {
+          "domain": "Network & Sibling Devices",
+          "devices": [
+            "家庭/私有 NAS",
+            "其他办公或备用笔记本电脑"
+          ]
+        },
+        {
+          "domain": "Third-party Cloud Storage",
+          "services": [
+            "Google Drive",
+            "坚果云",
+            "百度网盘等"
+          ]
+        }
+      ],
+      "core_essence": "不仅是空间清理，而是全域异构存储资产的统一知识图谱与索引底座，支撑个人终身成长与 AI 应用即时调用。"
+    },
+    "TARGET_GROUNDED": {
+      "milestone": "TARGET",
+      "vision_targets": [
+        "高效快速检索供 AI 及个人使用",
+        "扎实完备的跨端数据安全备份",
+        "持续积累的数据飞轮闭环"
+      ],
+      "falsifiable_metrics_proposal": {
+        "top_1_metric": {
+          "name": "极速检索命中率与延迟 (Retrieval Recall & Latency)",
+          "benchmark": "全域异构存储索引覆盖下，关键词/语义检索召回 Top3 命中率 >= 95%，本地及索引层响应时间 <= 3 秒。",
+          "falsification_condition": "当 AI 应用或个人通过标签/语义调取历史关键资产时，若报 404 或需要手动翻找，判定为失职。"
+        },
+        "secondary_metric_1_safety": {
+          "name": "关键资产双副本在位度 (Crown Jewels Redundancy)",
+          "benchmark": "划定为核心资产的数据（源码、文档、重要财务/私钥证书），跨介质（本地+云端或本地+NAS）有效备份覆盖率 100% (RPO <= 24h)。",
+          "falsification_condition": "任意单一硬件介质损坏或掉线时，核心资产发生不可逆灭失。"
+        },
+        "secondary_metric_2_flywheel": {
+          "name": "数据飞轮增量收敛度 (Incremental Ledger Growth)",
+          "benchmark": "新产生/新下载资产具有明确的生命周期流转路由，增量数据扫描与分类自动化率 >= 80%。"
+        }
+      }
+    }
+  },
+  "last_updated": "2026-10-26T11:24:33.800026+00:00"
+}

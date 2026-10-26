@@ -1,0 +1,13 @@
+# DeepSeek Harness (DSH) Cordis Overlay Patch for Meta-Partner
+# Usage:
+#   pnpm dsh web --patch /Users/ryan/Documents/projects/meta-partner/core/meta-partner/adapters/deepseek-harness/dsh-plugin-meta-partner/cordis.patch.yml
+# Or add to your user preset at ~/.dsh/.agent-presets/meta-partner/agent.cordis.yml
+
+plugins:
+  - id: meta-partner-plugin
+    name: /Users/ryan/Documents/projects/meta-partner/core/meta-partner/adapters/deepseek-harness/dsh-plugin-meta-partner/src/index.ts
+    config:
+      metaPartnerDir: /Users/ryan/Documents/projects/meta-partner/core/meta-partner
+      metaPromptSkillDir: /Users/ryan/Documents/projects/meta-partner/skills/meta-prompt
+      soulSectionOrder: 50
+      memorySectionOrder: 9500

@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "cases": [
+    { "input": "帮我盘点一下 Mac 和网盘上的资料都有哪些", "expect": "trigger" },
+    { "input": "磁盘又快满了，帮我看看什么最占空间", "expect": "trigger" },
+    { "input": "把最近一年没动过的大文件找出来，看看哪些能归档", "expect": "trigger" },
+    { "input": "Downloads 又乱了，帮我梳理分类", "expect": "trigger" },
+    { "input": "云盘和本地文件好像不一致，帮我核对一下", "expect": "trigger" },
+    { "input": "我的照片是不是只有一份拷贝？帮我查查备份", "expect": "trigger" },
+    { "input": "帮我写一个网页爬虫", "expect": "non-trigger" },
+    { "input": "修复这个 git merge 冲突", "expect": "non-trigger" },
+    { "input": "把这段代码重构一下", "expect": "non-trigger" }
+  ]
+}

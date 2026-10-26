@@ -1,0 +1,34 @@
+{
+  "version": "1.0",
+  "updated": "2026-10-26",
+  "hypotheses": [
+    {
+      "id": "H01_OFFLINE_LEDGER_SUFFICIENCY",
+      "statement": "用户不需要时刻插着移动硬盘或连着 NAS；只要有一份轻量离线元数据台账，全域资产检索即可实现 <= 3 秒精准命中。",
+      "status": "VALIDATED",
+      "evidence": "通过 fast_index_search.py 实测 1606 条真实台账记录，检索耗时 0.0042 秒 (4.2ms)，四象限打标完备，无需实时遍历物理磁盘。",
+      "probe_command": "python3 scripts/fast_index_search.py --ledger state/inventory/latest.jsonl --query <keyword>"
+    },
+    {
+      "id": "H02_DOWNLOADS_IS_CORE_BOTTLENECK",
+      "statement": "Mac 本地存储紧张（可用仅 70GB）的根因在于 Downloads 目录的冷热混杂（占 98.8%），而非日常代码或文档。",
+      "status": "VALIDATED",
+      "evidence": "物理台账证实：Downloads 独占 23.03GB，其中 Switch ROMs (nsz/nsp) 占 18.3GB；Documents 仅 0.14GB。",
+      "probe_command": "python3 scripts/fast_index_search.py --ledger state/inventory/latest.jsonl --min-mb 500"
+    },
+    {
+      "id": "H03_TWO_COPY_ADEQUACY",
+      "statement": "核心 Q1 资产（源码、Obsidian 笔记、账本）只要在本地与坚果云/iCloud/NAS 实现双介质在位，即可达到零灭失标准。",
+      "status": "PENDING",
+      "evidence": "待扫描外置移动盘与坚果云/NAS 同步目录后进行 ledger_diff 跨介质对账验证。",
+      "probe_command": "python3 scripts/ledger_diff.py --old state/inventory/local.jsonl --new state/inventory/cloud.jsonl"
+    },
+    {
+      "id": "H04_DATAPACK_COMPRESSION_ROI",
+      "statement": "将 Obsidian 等 Markdown 资产提纯为清单体 DataPack，能在保留 95% 语义信息的同时压缩 60% 以上 Token 消耗。",
+      "status": "PENDING",
+      "evidence": "待接入真实 AI 任务进行 A/B 提示词测试与评估。",
+      "probe_command": "python3 scripts/benchmark_datapack.py --sample <file>"
+    }
+  ]
+}

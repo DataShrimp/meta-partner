@@ -1,0 +1,81 @@
+{
+  "skill": "create-partner",
+  "version": "0.1.0",
+  "notes": "Positive cases should load the skill. Negative cases are near-misses that must NOT load it. Negative cases matter more: they are what keeps the trigger boundary from swallowing adjacent work owned by other skills.",
+  "positive": [
+    {
+      "prompt": "帮我做一个新的 DSH 角色，叫 code-reviewer，装到桌面端。",
+      "why": "Compile plus mount into the locked desktop profile."
+    },
+    {
+      "prompt": "我这个 SOUL.md 想让角色更简洁，怎么写成行为契约？",
+      "why": "Role slot authoring is in scope (references/role-5-slot-spec.md)."
+    },
+    {
+      "prompt": "验证一下 my-partner 角色是不是真的挂载成功了。",
+      "why": "Verification gate usage is explicitly in scope."
+    },
+    {
+      "prompt": "把 web profile 里的角色迁到 desktop，需要注意什么？",
+      "why": "Cross-tier migration is covered by P01/P02/P03."
+    },
+    {
+      "prompt": "我的 bundle patch 启动就报错，帮我看下 patch 形状对不对。",
+      "why": "P08 patch-shape diagnosis."
+    },
+    {
+      "prompt": "create-partner 这个技能本身还能怎么改进？",
+      "why": "Self-refactoring of this skill's own artifacts."
+    },
+    {
+      "prompt": "我的角色改了 SOUL.md，桌面上那个 persona 前缀要不要同步？帮我查一下漂了多少。",
+      "why": "Persona drift measurement is owned by this skill's check_persona_drift.py."
+    },
+    {
+      "prompt": "给 asset-partner 建一个 GUI 里能选的独立 Agent。",
+      "why": "Tier P preset scaffolding is this skill's own workflow."
+    }
+  ],
+  "negative": [
+    {
+      "prompt": "帮我给项目写一个 SKILL.md，用来规范 commit message。",
+      "why_not": "Authoring a plain skill is skill-creator's job; no role, no mount.",
+      "expected_skill": "skill-creator"
+    },
+    {
+      "prompt": "帮我装一下 Ebony-Vinyl/dsh-our-free-model 这个插件。",
+      "why_not": "Third-party plugin installation is not role compilation. Mentioning dsh install is the near-miss trap.",
+      "expected_skill": "none — general install procedure"
+    },
+    {
+      "prompt": "把这个 prompt 优化一下，让它输出更结构化。",
+      "why_not": "Prompt optimization only; no role and no mount.",
+      "expected_skill": "meta-prompt"
+    },
+    {
+      "prompt": "帮我先想清楚这个项目要做到什么程度才算完成。",
+      "why_not": "Goal definition, not role authoring.",
+      "expected_skill": "define-goal"
+    },
+    {
+      "prompt": "我的 dsh 启动报 koffi code signature 错误。",
+      "why_not": "Environment defect with no role involved. It appears here because P07 lives in this skill's references, but the fix is a launcher swap.",
+      "expected_skill": "none — P07 remedy directly"
+    },
+    {
+      "prompt": "读一下 ~/.dsh/AGENTS.md 帮我看看里面写了什么。",
+      "why_not": "File inspection, not compilation.",
+      "expected_skill": "none"
+    },
+    {
+      "prompt": "帮我看看 SOUL.md 写得怎么样。",
+      "why_not": "Pure document review with no mount and no drift comparison; belongs to a review task, not this skill.",
+      "expected_skill": "none"
+    },
+    {
+      "prompt": "帮我把 ~/.dsh/AGENTS.md 里的全局指令整理一下。",
+      "why_not": "Editing the instruction chain itself is file housekeeping; no role compile, no mount decision.",
+      "expected_skill": "none"
+    }
+  ]
+}
